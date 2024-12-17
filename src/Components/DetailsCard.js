@@ -27,7 +27,7 @@ function DetailsCard({ weather_icon, data, isFahrenheitMode, degreeSymbol }) {
     main.feels_like,
     main.temp,
     main.temp_max,
-    main.temp_min,
+    // main.temp_min,
   ]);
 
   return (

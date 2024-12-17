@@ -115,6 +115,8 @@ function App() {
           "https://openweathermap.org/img/wn/" + data.list[0].weather[0]["icon"]
         }@4x.png`
       );
+
+      
     } catch (error) {
       setLoading(true);
       console.log(error);
@@ -144,10 +146,10 @@ function App() {
     loadCountries();
   }, []);
 
-  // console.log(countries);
+
 
   const searchCountries = (input) => {
-    // const {value}=input.target;
+    
     setSearchTerm(input);
 
     if (!input) {
@@ -162,7 +164,7 @@ function App() {
       });
       setCountryMatch(matches);
     }
-    // console.log(countryMatch);
+
   };
 
   // load current location weather info on load
@@ -213,6 +215,9 @@ function App() {
             </div>
             <div className="city">
               <TbMapSearch />
+              <p>{city}</p> 
+                
+             
             </div>
           </div>
 
@@ -222,7 +227,7 @@ function App() {
                 marginRight: currentLanguage === "es" || "fr" ? "10px" : "0px",
                 color: `${isDark ? "#fff" : "#333"}`,
               }}
-            >
+            > The Only Weather App You Need !
             </h2>
 
             <hr
@@ -297,6 +302,8 @@ function App() {
                 </div>
               ) : (
                 <>
+                <h2 className=" centerTextOnMobile"> TODAY
+                </h2>
                   <DetailsCard
                     weather_icon={weatherIcon}
                     data={weatherData}
@@ -304,9 +311,10 @@ function App() {
                     isFahrenheitMode={isFahrenheitMode}
                     degreeSymbol={degreeSymbol}
                   />
-                  <h1 className="title centerTextOnMobile">
-                  </h1>
+                  <h2 className="centerTextOnMobile"> More on {city}
+                  </h2>
                   <ul className="summary">
+
                     {weatherData.list.map((days, index) => (
                       <SummaryCard
                         key={index}
